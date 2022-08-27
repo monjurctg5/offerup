@@ -12,7 +12,7 @@ const router = require("express").Router();
 
 
 
-router.post("/add-product",ProductValidation,multiUpload, addProduct);
+router.post("/add-product",multiUpload, addProduct);
 router.get("/all-product", allProduct);
 router.get("/singleProduct/:id", singleProduct);
 

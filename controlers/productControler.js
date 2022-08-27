@@ -42,7 +42,8 @@ const addProduct = async(req,res)=>{
 
 // get products 
 
-let allProduct =( req,res)=>{
+let allProduct =async( req,res)=>{
+     await Product.find({}).then(doc=>res.send(doc))
 
 }
 // single product
