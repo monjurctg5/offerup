@@ -24,11 +24,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-app.use(cors({
-   origin:["https://offerup-server-five.vercel.app/api"]
-}));
+// app.use(cors({
+//    origin:["https://offerup-server-five.vercel.app/api"]
+// }));
 
-// app.use(cors());
+app.use(cors({
+   origin:"*"
+}));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
