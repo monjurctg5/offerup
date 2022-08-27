@@ -25,6 +25,7 @@ const addProduct = async (req, res) => {
       })
     );
   } catch (err) {
+    console.log(err)
     res.json({
       status: "error",
       message: err,
