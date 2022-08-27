@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors');
 const productRoute = require("./routes/productRoute");
 const orderRoute = require("./routes/orderRoute");
-require('dotenv').config()
+
 var bodyParser = require('body-parser')
 // const userRouter = require('./Routes/userRoute')
 
@@ -32,7 +32,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 
- const uri = "mongodb+srv://offerup:cSXORZ7xUarclySW@cluster0.ghw3k.mongodb.net/Offerup?retryWrites=true&w=majority"
+ const uri = 'mongodb://localhost:27017/Offerup'
 
  mongoose.connect(uri,{
     useNewUrlParser: true,
