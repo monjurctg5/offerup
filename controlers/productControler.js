@@ -35,7 +35,12 @@ const addProduct = async (req, res) => {
 // get products
 
 let allProduct = async (req, res) => {
-  await Product.find({}).then((doc) => res.send(doc));
+  try{
+    await Product.find({}).then((doc) => res.send(doc));
+  }
+  catch(err){
+    console.log(err)
+  }
 };
 // single product
 let singleProduct = async (req, res) => {
