@@ -1,9 +1,10 @@
+const { makeActive } = require("../controlers/productControler");
 const { activeProduct } = require("../controlers/productControler");
 const {
   addProduct,
   allProduct,
   singleProduct,
-  updateProduct,
+
   deleteProduct,
 } = require("../controlers/productControler");
 const multiUpload = require("../middleware/addSingleImage");
@@ -17,10 +18,10 @@ router.post("/add-product",multiUpload, addProduct);
 router.get("/all-product", allProduct);
 
 router.get("/singleProduct/:id", singleProduct);
-router.put("/active-product", activeProduct);
+router.put("/make-active", makeActive);
 
 
-router.put("/update-product/:id", updateProduct);
+router.get("/active-product", activeProduct);
 
 router.delete("/delete-product/:id", deleteProduct);
 

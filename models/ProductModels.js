@@ -13,6 +13,7 @@ const ProductSchema = new Schema({
     image4:String,
     condition:String,
     category:String,
+    shippingCost:String,
     place:String,
     active:{
         type:Boolean,default:false
