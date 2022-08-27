@@ -45,8 +45,7 @@ let singleProduct = async (req, res) => {
 
 const makeActive = async (req, res) => {
   const { currentActive, newActive } = req.body;
-  let updateDoc = await Product.findByIdAndUpdate(
-    { _id: currentActive },
+  let updateDoc = await Product.updateMany(
     { active: false }
   ).then((oldActive) => {
     Product.findByIdAndUpdate({ _id: newActive }, { active: true }).then(
