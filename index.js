@@ -31,8 +31,7 @@ app.use(cors());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-
- const uri = `mongodb+srv://offerup:cSXORZ7xUarclySW@cluster0.ghw3k.mongodb.net/?retryWrites=true&w=majority`
+ const uri = "mongodb+srv://chatApp:monjur123@cluster0.pvcyw.mongodb.net/Chat-App?retryWrites=true&w=majority"
 
  mongoose.connect(uri,{
     useNewUrlParser: true,
