@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors');
 const productRoute = require("./routes/productRoute");
+const orderRoute = require("./routes/orderRoute");
+
 var bodyParser = require('body-parser')
 // const userRouter = require('./Routes/userRoute')
 
@@ -42,8 +44,9 @@ app.use(express.urlencoded({ extended: true }));
     process.exit();
  })
 
-app.use('/api',productRoute
-)
+app.use('/api',productRoute)
+app.use('/api',orderRoute)
+
 // app.use("/api/auth", userRouter);
 
 
