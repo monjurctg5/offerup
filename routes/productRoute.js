@@ -1,3 +1,4 @@
+const { activeProduct } = require("../controlers/productControler");
 const {
   addProduct,
   allProduct,
@@ -14,7 +15,10 @@ const router = require("express").Router();
 
 router.post("/add-product",multiUpload, addProduct);
 router.get("/all-product", allProduct);
+
 router.get("/singleProduct/:id", singleProduct);
+router.put("/active-product", activeProduct);
+
 
 router.put("/update-product/:id", updateProduct);
 

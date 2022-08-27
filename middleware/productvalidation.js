@@ -10,9 +10,11 @@ const ProductValidation = (req, res, next) => {
     place,
    
   } = req.body;
-  if(!productName) res.send("produt name can not be empty");
-  else if(!title) res.send("title  can not be empty");
+   if(!title) res.send("title  can not be empty");
+ else if(!productName) res.send("produt name can not be empty");
+
   else if(!sortTitle) res.send("sort title can not be empty");
+
   else if(!price) res.send("price can not be empty");
   else if(!description) res.send("description can not be empty"); 
 

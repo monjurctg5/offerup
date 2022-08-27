@@ -8,12 +8,11 @@ const Product = require("../models/ProductModels")
 
 const addProduct = async(req,res)=>{
     const files = req.files
-    let image1 = files["productImage"][0].path
+    let image1 = files["image1"][0].path
     let image2 =files["image2"][0].path
     let image3 =files["image3"][0].path
 
     let image4 =files["image4"][0].path
-    console.log(productImage,image2,image3,"hello")
 
 
   try{
@@ -47,10 +46,25 @@ let allProduct =async( req,res)=>{
 
 }
 // single product
-let singleProduct=(req,res)=>{
+let singleProduct=async(req,res)=>{
+  const id = req.params.id
+  let doc = await Product.find({_id:id}).then(doc=>res.send(doc))
+
 
 }
 
+const activeProduct = async(req,res)=>{
+  const {currentActive,newActive} = req.body
+  let updateDoc = await Product.findByIdAndUpdate({_id:currentActive},{active:false}).then((oldActive)=>{
+     Product.findByIdAndUpdate({_id:newActive},{active:true}).then((doc)=>{
+      res.json({message:"active successfully",data:doc,oldActive})
+    })
+
+  })
+
+
+  
+}
 
 // delete product
 let updateProduct=(req,res)=>{
@@ -66,5 +80,5 @@ module.exports={
     addProduct,
     allProduct,singleProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,activeProduct
 }
