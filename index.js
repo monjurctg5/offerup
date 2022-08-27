@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors');
 const productRoute = require("./routes/productRoute");
 const orderRoute = require("./routes/orderRoute");
-
+require('dotenv').config()
 var bodyParser = require('body-parser')
 // const userRouter = require('./Routes/userRoute')
 
@@ -32,7 +32,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 
- const uri = 'mongodb://localhost:27017/Offerup'
+ const uri = `mongodb+srv://${process.env.DBUSER}:${process.env.PASSWORD}@cluster0.ghw3k.mongodb.net/?retryWrites=true&w=majority`
 
  mongoose.connect(uri,{
     useNewUrlParser: true,
