@@ -4,11 +4,11 @@ const Product = require("../models/ProductModels");
 
 const addProduct = async (req, res) => {
   const files = req.files;
-  let image1 ="http://localhost:5000/"+ files["image1"][0].path;
-  let image2 ="http://localhost:5000/"+ files["image2"][0].path;
-  let image3 = "http://localhost:5000/"+files["image3"][0].path;
+  let image1 ="https://offerup-server-ds4zi13wy-monjurctg.vercel.app/"+ files["image1"][0].path;
+  let image2 ="https://offerup-server-ds4zi13wy-monjurctg.vercel.app/"+ files["image2"][0].path;
+  let image3 = "https://offerup-server-ds4zi13wy-monjurctg.vercel.app/"+files["image3"][0].path;
 
-  let image4 ="http://localhost:5000/"+ files["image4"][0].path;
+  let image4 ="https://offerup-server-ds4zi13wy-monjurctg.vercel.app/"+ files["image4"][0].path;
 
   try {
     const newProduct = new Product({
