@@ -25,7 +25,7 @@ app.use(bodyParser.json())
 
 
 app.use(cors({
-   origin:"https://offerup-server-five.vercel.app/api"
+   origin:["https://offerup-server-five.vercel.app/api"]
 }));
 
 // app.use(cors());
