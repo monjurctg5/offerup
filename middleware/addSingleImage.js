@@ -24,5 +24,5 @@ const upload = multer({
   fileFilter: fileFilter,
 });
 
-const multiUpload  = upload.fields([{name:"productImage"},{name:"image2"},{name:"image3"},{name:"image4"}])
+const multiUpload  = upload.fields([{name:"image1"},{name:"image2"},{name:"image3"},{name:"image4"}])
 module.exports =multiUpload
