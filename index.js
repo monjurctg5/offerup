@@ -7,6 +7,9 @@ var bodyParser = require('body-parser')
 
 const app = express();
 
+app.use("/public/uploads",express.static("public/uploads"))
+
+
 const PORT = process.env.PORT || 5000;
 
 // app.use(cors({
@@ -39,7 +42,8 @@ app.use(express.urlencoded({ extended: true }));
     process.exit();
  })
 
-app.use('/api',productRoute)
+app.use('/api',productRoute
+)
 // app.use("/api/auth", userRouter);
 
 

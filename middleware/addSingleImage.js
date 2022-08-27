@@ -1,7 +1,8 @@
 const multer = require("multer");
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/uploads");
+    cb(null, './public/uploads/');
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -24,5 +25,5 @@ const upload = multer({
   fileFilter: fileFilter,
 });
 
-const multiUpload  = upload.fields([{name:"image1"},{name:"image2"},{name:"image3"},{name:"image4"}])
+const multiUpload  = upload.fields([{name:'image1'},{name:'image2'},{name:'image3'},{name:'image4'}])
 module.exports =multiUpload
