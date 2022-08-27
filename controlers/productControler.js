@@ -4,36 +4,35 @@ const Product = require("../models/ProductModels");
 
 const addProduct = async (req, res) => {
   const files = req.files;
-  console.log(files)
-//   let image1 ="http://localhost:5000/"+ files["image1"][0].path;
-//   let image2 ="http://localhost:5000/"+ files["image2"][0].path;
-//   let image3 = "http://localhost:5000/"+files["image3"][0].path;
+  let image1 ="http://localhost:5000/"+ files["image1"][0].path;
+  let image2 ="http://localhost:5000/"+ files["image2"][0].path;
+  let image3 = "http://localhost:5000/"+files["image3"][0].path;
 
-//   let image4 ="http://localhost:5000/"+ files["image4"][0].path;
+  let image4 ="http://localhost:5000/"+ files["image4"][0].path;
 
-//   try {
-//     const newProduct = new Product({
-//       ...req.body,
-//       image1,
-//       image2,
-//       image3,
-//       image4,
-//     });
-//     newProduct.save().then((doc) =>
-//       res.json({
-//         message: "product added successfully",
-//         data: doc,
-//       })
-//     );
-//   } catch (err) {
-//     res.json({
-//       status: "error",
-//       message: err,
-//     });
-//   }
-}
+  try {
+    const newProduct = new Product({
+      ...req.body,
+      image1,
+      image2,
+      image3,
+      image4,
+    });
+    newProduct.save().then((doc) =>
+      res.json({
+        message: "product added successfully",
+        data: doc,
+      })
+    );
+  } catch (err) {
+    res.json({
+      status: "error",
+      message: err,
+    });
+  }
+};
 
-// // get products
+// get products
 
 let allProduct = async (req, res) => {
   try{
