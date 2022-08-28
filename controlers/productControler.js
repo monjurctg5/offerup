@@ -43,7 +43,10 @@ let allProduct = async (req, res) => {
     await Product.find({}).then((doc) => res.send(doc));
   }
   catch(err){
-    console.log(err)
+    res.json({
+      status: "error",
+      message: err,})
+    
   }
 };
 // single product
