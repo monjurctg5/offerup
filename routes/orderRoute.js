@@ -26,7 +26,7 @@ res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader.post['Content-Type'] ='application/json;charset=utf-8'; // If needed
   res.setHeader('Access-Control-Allow-Credentials', true); 
 
-  res.send('cors problem fixed:)');
+  res.send('cors problem :)');
 
 });
 
