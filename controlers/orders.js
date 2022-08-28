@@ -1,15 +1,40 @@
 const OrderModel = require("../models/Orders");
+const Product = require("../models/ProductModels");
+
 
 const addOrder = async (req, res) => {
-  const newOrder = new OrderModel({
-    ...req.body,
-  });
-  try {
-    await newOrder.save().then((doc) => {
-      res.status(200).json({ message: "order add successfully", data: doc });
+  if(req.body.product){
+    console.log(req.body,"body")
+    try {
+      const newProduct =  new Product(req.body); // console.log('newProduct :>> ', newProduct);
+     await  newProduct.save().then((doc) =>
+    
+        res.json({
+          message: "product added successfully",
+          data: doc,
+        })
+      );
+    } catch (err) {
+      console.log(err)
+      res.json({
+        status: "error",
+        message: err,
+      });
+    }
+    
+  }
+  else{
+    const newOrder = new OrderModel({
+      ...req.body,
     });
-  } catch (err) {
-    res.json({ err });
+    try {
+      await newOrder.save().then((doc) => {
+        res.status(200).json({ message: "order add successfully", data: doc });
+      });
+    } catch (err) {
+      console.log(err)
+      res.json({ err });
+    }
   }
 };
 
