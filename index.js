@@ -9,7 +9,7 @@ var bodyParser = require('body-parser')
 
 const app = express();
 
-app.use("/public/uploads",express.static("public/uploads"))
+app.use("/public/uploads",express.static("/public/uploads"))
 
 
 const PORT = process.env.PORT || 5000;
@@ -24,13 +24,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-// app.use(cors({
-//    origin:["https://offerup-server-five.vercel.app/api"]
-// }));
-
 app.use(cors({
    origin:"*"
 }));
+// app.use(cors({
+
+// }))
+// app.use(cors({
+
+//    origin:"*"
+// }));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
