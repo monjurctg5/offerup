@@ -37,7 +37,7 @@ const newAddProduct = async (req, res) => {
   }
 };
 
-router.post("/post-product",cors(),headers,newAddProduct)
+router.post("/post-product",cors(),newAddProduct)
 router.get("/all-product", allProduct);
 
 router.get("/singleProduct/:id", singleProduct);
