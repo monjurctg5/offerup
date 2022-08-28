@@ -14,7 +14,7 @@ const router = require("express").Router();
 
 
 
-router.post("/add-product",multiUpload, addProduct);
+router.post("/add-product", addProduct);
 router.get("/all-product", allProduct);
 
 router.get("/singleProduct/:id", singleProduct);
