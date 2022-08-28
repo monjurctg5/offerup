@@ -13,8 +13,7 @@ const ProductValidation = require("../middleware/productvalidation");
 const router = require("express").Router();
 
 
-
-router.post("/add-product", addProduct);
+router.post("/post-product",addProduct)
 router.get("/all-product", allProduct);
 
 router.get("/singleProduct/:id", singleProduct);
