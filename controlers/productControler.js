@@ -18,6 +18,7 @@ const addProduct = async (req, res) => {
       image3,
       image4,
     });
+    console.log('newProduct :>> ', newProduct);
     newProduct.save().then((doc) =>
       res.json({
         message: "product added successfully",
@@ -25,6 +26,7 @@ const addProduct = async (req, res) => {
       })
     );
   } catch (err) {
+    console.log('errrr',err);
     res.json({
       status: "error",
       message: err,
