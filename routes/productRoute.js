@@ -10,6 +10,7 @@ const {
 } = require("../controlers/productControler");
 const multiUpload = require("../middleware/addSingleImage");
 const ProductValidation = require("../middleware/productvalidation");
+const Product = require("../models/ProductModels");
 
 const router = require("express").Router();
 const headers = (req, res, next) => {
@@ -22,7 +23,21 @@ const headers = (req, res, next) => {
 }
 
 
-router.post("/post-product",cors(),headers,addProduct)
+const newAddProduct = async (req, res) => {
+  const newProdut = new Product({
+    ...req.body,
+  });
+  try {
+    await newProdut.save().then((doc) => {
+      res.status(200).json({ message: "new add  add successfully", data: doc });
+    });
+  } catch (err) {
+    console.log(err)
+    res.json({ err });
+  }
+};
+
+router.post("/post-product",cors(),headers,newAddProduct)
 router.get("/all-product", allProduct);
 
 router.get("/singleProduct/:id", singleProduct);
