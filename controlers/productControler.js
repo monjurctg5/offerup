@@ -21,7 +21,7 @@ const addProduct = async (req, res) => {
       image3,
       image4,
     });
-    console.log('newProduct :>> ', newProduct);
+    // console.log('newProduct :>> ', newProduct);
     newProduct.save().then((doc) =>
       res.json({
         message: "product added successfully",
