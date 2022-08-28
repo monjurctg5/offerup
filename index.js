@@ -24,16 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-app.use(cors({
-   origin:"*"
-}));
-// app.use(cors({
-
-// }))
-// app.use(cors({
-
-//    origin:"*"
-// }));
+app.use(cors())
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
