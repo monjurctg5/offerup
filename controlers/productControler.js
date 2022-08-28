@@ -1,8 +1,6 @@
 // add product
 
 const Product = require("../models/ProductModels");
-let url= "https://localhost:5000/"
-let url2= "https://offerup-server-ds4zi13wy-monjurctg.vercel.app/"
 
 
 const addProduct = async (req, res) => {
@@ -12,39 +10,22 @@ const addProduct = async (req, res) => {
   // let image3 = url2+files["image3"][0].path;
 
   // let image4 =url+ files["image4"][0].path;
-
+console.log(req.body,"body")
   try {
-    const newProduct = new Product({
-      ...req.body
-    });
-    // console.log('newProduct :>> ', newProduct);
-    newProduct.save().then((doc) =>
+    const newProduct = await new Product(req.body); // console.log('newProduct :>> ', newProduct);
+   await  newProduct.save().then((doc) =>
+  
       res.json({
         message: "product added successfully",
         data: doc,
       })
     );
   } catch (err) {
+    console.log(err)
     res.json({
       status: "error",
       message: err,
     });
-  }
-};
-
-// get products
-
-let allProduct = async (req, res) => {
-  try{
-    await Product.find({}).then((doc) => res.send(doc));
-  }
-  catch(err){
-    console.log(err)
-    res.json({
-      status: "error",
-      message: err,})
-
-    
   }
 };
 // single product
